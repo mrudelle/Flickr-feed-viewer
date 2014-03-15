@@ -10,9 +10,10 @@
 <body ng-controller="FeedListCtrl">
 	<h1>Flickr Public Feed</h1>
 	<div>
+		<h2>{{feed.title}}</h2>
 		<ul>
-			<li>{{picture1}}</li>
-			<li>{{picture2}}</li>
+			<li>{{feed.items[0].title}}</li>
+			<li>{{feed.items[1].title}}</li>
 		</ul>
 	</div>
 

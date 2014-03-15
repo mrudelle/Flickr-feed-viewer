@@ -3,7 +3,8 @@
 var flickrfeedApp = angular.module('flickrfeedApp', []);
 
 
-flickrfeedApp.controller('FeedListCtrl', function ($scope) {
-  $scope.picture1 = "Picture #1";
-  $scope.picture2 = "Picture #2";
+flickrfeedApp.controller('FeedListCtrl', function ($scope, $http) {
+  $http.jsonp('http://api.flickr.com/services/feeds/photos_public.gne?tags=potato&tagmode=all&format=json&jsoncallback=JSON_CALLBACK').success(function(data) {
+    $scope.feed = data;
+  });
 });
