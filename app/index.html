@@ -11,9 +11,11 @@
 	<h1>Flickr Public Feed</h1>
 	<div>
 		<h2>{{feed.title}}</h2>
-		<ul>
-			<li>{{feed.items[0].title}}</li>
-			<li>{{feed.items[1].title}}</li>
+		<ul ng-repeat="post in feed.items">
+			<li><img src="{{post.media.m}}">
+				<h2>{{post.title}}</h2>
+				<p><a href="">{{post.author}}</a> Published on {{post.published}} <a href="{{post.link}}">View on flickr</a></p>
+			</li>
 		</ul>
 	</div>
 
