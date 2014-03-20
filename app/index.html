@@ -4,21 +4,14 @@
 	<meta charset="utf-8">
 	<title>Flickr Public Feed</title>
 	<script src="lib/angular.js"></script>
+	<script src="lib/angular-route.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/controllers.js"></script>
 	<script src="js/filters.js"></script>
 </head>
-<body ng-controller="FeedListCtrl">
-	<h1>Flickr Public Feed</h1>
-	<div>
-		<h2>{{feed.title}}</h2>
-		<ul ng-repeat="post in feed.items">
-			<li><img src="{{post.media.m}}">
-				<h2>{{post.title}}</h2>
-				<p><a href="http://www.flickr.com/people/{{post.author_id}}/">{{post.author | extractAuthor}}</a> Published: {{post.published | date:"d/M/yyyy 'at' h:mm"}} <a href="{{post.link}}">View on flickr</a></p>
-			</li>
-		</ul>
-	</div>
+<body>
+	
+	<div ng-view></div>
 
 </body>
 </html>

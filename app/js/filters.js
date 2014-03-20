@@ -8,3 +8,11 @@ flickrfeedFilters.filter('extractAuthor', function() {
 			return authorPatt.exec(input)[1];
 		};
 });
+
+flickrfeedFilters.filter('toInternalLink', function() {
+		return function(input) {
+			var authorPatt = /\/photos\/(.+)\/(.+)\/$/;
+			var data = authorPatt.exec(input)
+			return "#/post/" + data[1] + "/" + data[2];
+		};
+});
