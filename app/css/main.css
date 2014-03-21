@@ -1,0 +1,42 @@
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #F0F0F0; }
+
+ul {
+  padding-left: 0; }
+
+ul > li {
+  list-style-type: none; }
+
+.feed-item {
+  height: 160px;
+  background-color: #F8F8F8;
+  margin-bottom: 10px; }
+
+.feed-item-text {
+  vertical-align: top;
+  display: inline-block;
+  position: relative;
+  padding-left: 15px; }
+
+.feed-item-img {
+  width: 240px;
+  height: 160px;
+  overflow: hidden;
+  display: inline-block;
+  position: relative; }
+  .feed-item-img img {
+    min-width: 240px;
+    min-height: 160px;
+    /*the next 5 statements allows to center the overflowing of an image in its div 
+    (src: http://stackoverflow.com/questions/14562457/center-oversized-image-in-div)*/
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto; }

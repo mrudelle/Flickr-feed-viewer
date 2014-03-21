@@ -1,19 +1,23 @@
 
 <div>
-	<ul ng-repeat="post in feed.items">
-		<li>
-			<a href="{{post.link | toInternalLink}}">
-				<img src="{{post.media.m}}">
-			</a>
-			<h2>
+	<ul>
+		<li ng-repeat="post in feed.items" class="feed-item">
+			<div class="feed-item-img">
 				<a href="{{post.link | toInternalLink}}">
-					{{post.title}}
+					<img src="{{post.media.m}}">
 				</a>
-			</h2>
-			<p>	<a href="http://www.flickr.com/people/{{post.author_id}}/">{{post.author | extractAuthor}}</a>
-				 	Published: {{post.published | date:"d/M/yyyy 'at' h:mm"}} 
-				<a href="{{post.link}}">View on flickr</a>
-			</p>
+			</div>
+			<div class="feed-item-text">
+				<h2>
+					<a href="{{post.link | toInternalLink}}">
+						{{post.title}}
+					</a>
+				</h2>
+				<p>	<a href="http://www.flickr.com/people/{{post.author_id}}/">{{post.author | extractAuthor}}</a>
+					 	Published: {{post.published | date:"d/M/yyyy 'at' h:mm"}} 
+					<a href="{{post.link}}">View on flickr</a>
+				</p>
+			</div>
 		</li>
 	</ul>
 </div>
