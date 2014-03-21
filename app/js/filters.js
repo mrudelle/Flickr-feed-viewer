@@ -16,3 +16,16 @@ flickrfeedFilters.filter('toInternalLink', function() {
 			return "#/post/" + data[1] + "/" + data[2];
 		};
 });
+
+flickrfeedFilters.filter('split', function() {
+		return function(input, splitchar) {
+			return input.split(splitchar);
+		};
+});
+
+flickrfeedFilters.filter('extractMessage', function() {
+		return function(input) {
+			var authorPatt = /<p>.+<p>.+<p>(.+)<\/p>/;
+			return authorPatt.exec(input)[1];
+		};
+});
