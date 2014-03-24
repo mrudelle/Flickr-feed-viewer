@@ -7,7 +7,7 @@
 			</a>
 			<h2>
 				<a href="{{post.link | toInternalLink}}">
-					{{post.title}}
+					{{post.title | handleUntitled}}
 				</a>
 			</h2>
 			<p>	<a href="http://www.flickr.com/people/{{post.author_id}}/">{{post.author | extractAuthor}}</a>
