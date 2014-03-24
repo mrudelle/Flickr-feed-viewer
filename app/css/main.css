@@ -14,8 +14,12 @@ ul > li {
 
 .feed-item {
   height: 160px;
-  background-color: #F8F8F8;
-  margin-bottom: 10px; }
+  background-color: #FFF;
+  margin-bottom: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
 
 .feed-item-text {
   vertical-align: top;
@@ -28,7 +32,11 @@ ul > li {
   height: 160px;
   overflow: hidden;
   display: inline-block;
-  position: relative; }
+  position: relative;
+  -webkit-border-radius: 5px 0 0 5px;
+  -moz-border-radius: 5px 0 0 5px;
+  -ms-border-radius: 5px 0 0 5px;
+  border-radius: 5px 0 0 5px; }
   .feed-item-img img {
     min-width: 240px;
     min-height: 160px;

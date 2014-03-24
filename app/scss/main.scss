@@ -17,11 +17,28 @@ ul > li {
 
 $feed-img-height: 160px;
 $feed-img-width: 240px;
+$feeds-border-radius: 5px;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin border-radius-left($radius) {
+  -webkit-border-radius: $radius 0 0 $radius;
+     -moz-border-radius: $radius 0 0 $radius;
+      -ms-border-radius: $radius 0 0 $radius;
+          border-radius: $radius 0 0 $radius;
+}
 
 .feed-item {
 	height: $feed-img-height;
-	background-color: #F8F8F8;
+	background-color: #FFF;
 	margin-bottom: 10px;
+
+	@include border-radius($feeds-border-radius);
 }
 
 .feed-item-text {
@@ -37,6 +54,8 @@ $feed-img-width: 240px;
 	overflow: hidden;
 	display: inline-block;
 	position: relative;
+
+	@include border-radius-left($feeds-border-radius);
 	
 	img {
 		min-width: $feed-img-width;
