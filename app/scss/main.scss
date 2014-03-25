@@ -27,10 +27,13 @@ $feeds-border-radius: 5px;
 }
 
 @mixin border-radius-left($radius) {
-  -webkit-border-radius: $radius 0 0 $radius;
-     -moz-border-radius: $radius 0 0 $radius;
-      -ms-border-radius: $radius 0 0 $radius;
-          border-radius: $radius 0 0 $radius;
+  @include border-radius($radius 0 0 $radius);
+}
+
+@mixin box-shadow($color) {
+	-webkit-box-shadow: 0px 2px 2px 0px $color; 
+	   -moz-box-shadow: 0px 2px 2px 0px $color; 
+	   		box-shadow: 0px 2px 2px 0px $color;
 }
 
 .feed-item {
@@ -39,6 +42,7 @@ $feeds-border-radius: 5px;
 	margin-bottom: 10px;
 
 	@include border-radius($feeds-border-radius);
+	@include box-shadow(#E0E0E0);
 }
 
 .feed-item-text {
