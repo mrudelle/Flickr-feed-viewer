@@ -1,10 +1,15 @@
 body {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	font-weight: 300;
-	width: 800px;
+	max-width: 800px;
 	margin-left:auto;
 	margin-right:auto;
 	background-color: #F0F0F0;
+}
+
+.app-view {
+	position: relative;
+	width: 100%;
 }
 
 ul {
@@ -162,10 +167,6 @@ a.title {
 	}
 }
 
-.app-view {
-	position: relative;
-}
-
 $post-img-width : 240px;
 
 .post-container {
@@ -202,7 +203,7 @@ $post-img-width : 240px;
 
 .tag {
 	@include border-radius(5px);
-	padding: 5px 10px 6px 8px;
+	padding: 5px 8px 6px 8px;
 	line-height: 220%;
 	margin-right: 5px;
 	color: #434343;
