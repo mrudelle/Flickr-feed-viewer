@@ -184,6 +184,9 @@ $post-img-width : 240px;
 			img {
 				width: #{$post-img-width};
 				height: auto;
+
+				@include border-radius(7px);
+				@include box-shadow(#D8D8D8);
 			}
 		}
 
