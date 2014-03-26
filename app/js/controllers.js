@@ -19,9 +19,13 @@ flickrfeedControllers.controller('FeedPostCtrl', ['$scope','$routeParams', '$htt
 
 					//generate the description
 					var descrPatt = /<p>.+<p>.+<p>(.+)<\/p>/;
-					$scope.description = $sce.trustAsHtml(
-						descrPatt.exec($scope.post.description)[1]);
-					
+					var extract = descrPatt.exec($scope.post.description);
+					if (extract == null) {
+						$scope.description = $sce.trustAsHtml("<i>No descritption available for this picture</i>");
+					} else {
+						$scope.description = $sce.trustAsHtml(extract[1]);
+					}
+
 					break;
 				}
 			};

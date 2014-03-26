@@ -1,10 +1,15 @@
 body {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	font-weight: 300;
-	width: 800px;
+	max-width: 800px;
 	margin-left:auto;
 	margin-right:auto;
 	background-color: #F0F0F0;
+}
+
+.app-view {
+	position: relative;
+	width: 100%;
 }
 
 ul {
@@ -27,7 +32,7 @@ $feeds-border-radius: 5px;
 }
 
 @mixin border-radius-left($radius) {
-  @include border-radius($radius 0 0 $radius);
+  	@include border-radius($radius 0 0 $radius);
 }
 
 @mixin box-shadow($color) {
@@ -107,5 +112,110 @@ a.title {
 	&:visited { 
 		&:hover { color: #818181; }
 		color: #949494; 
+	}
+}
+
+@mixin back-arrow($background, $border, $height, $brdrwidth) {
+	// source : http://cssarrowplease.com/
+	position: absolute;
+	background: $background;
+	border: #{$brdrwidth}px solid $border;
+	$inner-padding : 10;
+	height: #{$height*2 - $inner-padding*2}px;
+	line-height: #{$height*2 - $inner-padding*2}px;
+	padding: #{$inner-padding}px;
+
+	@include border-radius(0 5px 5px 0);
+
+	&:after, &:before {
+		right: 100%;
+		top: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+
+	&:after {
+		// border-color: rgba(136, 183, 213, 0);
+		border-right-color: $background;
+		border-width: #{$height}px;
+		margin-top: -#{$height}px;
+	}
+
+	&:before {
+		// border-color: rgba(194, 225, 245, 0);
+		border-right-color: $border;
+		border-width: #{$height+$brdrwidth*1.5}px;
+		margin-top: -#{$height+$brdrwidth*1.5}px;
+	}
+}
+
+.back-arrow {
+	@include back-arrow(#DADADA, #CCCCCC, 15, 0);
+	font-weight: bold;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+	color: #434343;
+
+	&:hover {
+		@include back-arrow(#CCCCCC, #CCCCCC, 15, 0);
+		color: #F5F5F5;
+	}
+}
+
+$post-img-width : 240px;
+
+.post-container {
+	position: relative;
+
+	.post-title {
+		position: relative;
+	}
+
+	.post-content {
+		position: relative;
+		
+		.post-img {
+			width: #{$post-img-width};
+			
+			img {
+				width: #{$post-img-width};
+				height: auto;
+
+				@include border-radius(7px);
+				@include box-shadow(#D8D8D8);
+			}
+		}
+
+		.post-text {
+			position: absolute;
+			top: 0;
+			left: 240px;
+			padding: 10px;
+		}
+	}
+
+}
+
+.tag {
+	@include border-radius(5px);
+	padding: 5px 8px 6px 8px;
+	line-height: 220%;
+	margin-right: 5px;
+	color: #434343;
+	background: #DADADA;
+
+	&:hover{
+		background: #CCCCCC;
+		color: #434343;
+		text-decoration: none;
+	}
+
+	&:visited {
+		color: #9B9B9B;
 	}
 }
