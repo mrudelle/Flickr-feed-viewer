@@ -149,7 +149,7 @@ a.title {
 }
 
 .back-arrow {
-	@include back-arrow(#DADADA, #CCCCCC, 15, 2);
+	@include back-arrow(#DADADA, #CCCCCC, 15, 0);
 	font-weight: bold;
 	top: 0;
 	right: 0;
@@ -157,7 +157,7 @@ a.title {
 	color: #434343;
 
 	&:hover {
-		@include back-arrow(#CCCCCC, #CCCCCC, 15, 2);
+		@include back-arrow(#CCCCCC, #CCCCCC, 15, 0);
 		color: #F5F5F5;
 	}
 }
@@ -198,4 +198,23 @@ $post-img-width : 240px;
 		}
 	}
 
+}
+
+.tag {
+	@include border-radius(5px);
+	padding: 5px 10px 6px 8px;
+	line-height: 220%;
+	margin-right: 5px;
+	color: #434343;
+	background: #DADADA;
+
+	&:hover{
+		background: #CCCCCC;
+		color: #434343;
+		text-decoration: none;
+	}
+
+	&:visited {
+		color: #9B9B9B;
+	}
 }

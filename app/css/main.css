@@ -83,7 +83,7 @@ a.title {
 .back-arrow {
   position: absolute;
   background: #dadada;
-  border: 2px solid #cccccc;
+  border: 0px solid #cccccc;
   height: 10px;
   line-height: 10px;
   padding: 10px;
@@ -111,12 +111,12 @@ a.title {
     margin-top: -15px; }
   .back-arrow:before {
     border-right-color: #cccccc;
-    border-width: 18px;
-    margin-top: -18px; }
+    border-width: 15px;
+    margin-top: -15px; }
   .back-arrow:hover {
     position: absolute;
     background: #cccccc;
-    border: 2px solid #cccccc;
+    border: 0px solid #cccccc;
     height: 10px;
     line-height: 10px;
     padding: 10px;
@@ -140,8 +140,8 @@ a.title {
       margin-top: -15px; }
     .back-arrow:hover:before {
       border-right-color: #cccccc;
-      border-width: 18px;
-      margin-top: -18px; }
+      border-width: 15px;
+      margin-top: -15px; }
 
 .app-view {
   position: relative; }
@@ -169,3 +169,20 @@ a.title {
       top: 0;
       left: 240px;
       padding: 10px; }
+
+.tag {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  padding: 5px 10px 6px 8px;
+  line-height: 220%;
+  margin-right: 5px;
+  color: #434343;
+  background: #DADADA; }
+  .tag:hover {
+    background: #CCCCCC;
+    color: #434343;
+    text-decoration: none; }
+  .tag:visited {
+    color: #9B9B9B; }
