@@ -40,16 +40,19 @@ $feeds-border-radius: 5px;
 	height: $feed-img-height;
 	background-color: #FFF;
 	margin-bottom: 10px;
+	position: relative;
 
 	@include border-radius($feeds-border-radius);
 	@include box-shadow(#E0E0E0);
 }
 
 .feed-item-text {
-	vertical-align: top;
-	display: inline-block;
-	position: relative;
-	padding-left: 15px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: $feed-img-width;
+	padding: 0px 15px;
 }
 
 .feed-item-img {
@@ -74,4 +77,10 @@ $feeds-border-radius: 5px;
 		right: -9999px;
 		margin: auto;
 	}
+}
+
+.truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
