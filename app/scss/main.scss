@@ -84,3 +84,28 @@ $feeds-border-radius: 5px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+
+a {
+	text-decoration: none;
+	color: #456CC0;
+	font-weight: bold;
+
+	&:hover { text-decoration: underline; }
+
+	&:visited { color: #956CC0; }
+}
+
+a.title {
+	text-decoration: none;
+	color: #555;
+
+	&:hover { 
+		color: #818181; 
+		text-decoration: none;
+	}
+
+	&:visited { 
+		&:hover { color: #818181; }
+		color: #949494; 
+	}
+}
