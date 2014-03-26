@@ -29,3 +29,9 @@ flickrfeedFilters.filter('extractMessage', function() {
 			return authorPatt.exec(input)[1];
 		};
 });
+
+flickrfeedFilters.filter('handleUntitled', function() {
+		return function(input) {
+			return input === "" ? "Untitled" : input;
+		};
+});

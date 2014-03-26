@@ -10,7 +10,7 @@
 			<div class="feed-item-text">
 				<a href="{{post.link | toInternalLink}}">
 					<h2 class="truncate">
-						{{post.title}}
+						{{post.title | handleUntitled}}
 					</h2>
 				</a>
 				<p>	<a href="http://www.flickr.com/people/{{post.author_id}}/">{{post.author | extractAuthor}}</a>
