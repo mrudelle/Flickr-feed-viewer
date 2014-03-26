@@ -27,7 +27,7 @@ $feeds-border-radius: 5px;
 }
 
 @mixin border-radius-left($radius) {
-  @include border-radius($radius 0 0 $radius);
+  	@include border-radius($radius 0 0 $radius);
 }
 
 @mixin box-shadow($color) {
@@ -108,4 +108,60 @@ a.title {
 		&:hover { color: #818181; }
 		color: #949494; 
 	}
+}
+
+@mixin back-arrow($background, $border, $height, $brdrwidth) {
+	// source : http://cssarrowplease.com/
+	position: absolute;
+	background: $background;
+	border: #{$brdrwidth}px solid $border;
+	$inner-padding : 10;
+	height: #{$height*2 - $inner-padding*2}px;
+	line-height: #{$height*2 - $inner-padding*2}px;
+	padding: #{$inner-padding}px;
+
+	@include border-radius(0 5px 5px 0);
+
+	&:after, &:before {
+		right: 100%;
+		top: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+
+	&:after {
+		// border-color: rgba(136, 183, 213, 0);
+		border-right-color: $background;
+		border-width: #{$height}px;
+		margin-top: -#{$height}px;
+	}
+
+	&:before {
+		// border-color: rgba(194, 225, 245, 0);
+		border-right-color: $border;
+		border-width: #{$height+$brdrwidth*1.5}px;
+		margin-top: -#{$height+$brdrwidth*1.5}px;
+	}
+}
+
+.back-arrow {
+	@include back-arrow(#DADADA, #CCCCCC, 15, 2);
+	font-weight: bold;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+	color: #434343;
+
+	&:hover {
+		@include back-arrow(#CCCCCC, #CCCCCC, 15, 2);
+		color: #F5F5F5;
+	}
+}
+
+.post-title {
+	position: relative;
 }

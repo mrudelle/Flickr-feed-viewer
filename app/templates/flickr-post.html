@@ -1,15 +1,20 @@
-<h2>
-	<a class="title" href="{{post.link}}">{{post.title | handleUntitled}}</a>&emsp;&emsp;<a ng-click="back()">Return</a>
-</h2>
-<p>
-	<a href="http://www.flickr.com/people/{{post.author_id}}/">
-		{{post.author | extractAuthor}}</a>
-	&emsp;|&emsp;Published: {{post.published | date:"d/M/yyyy 'at' h:mm"}} 
-</p>
 <div>
-	<img src="{{post.media.m}}">
-</div>
-<div>
-	<div ng-bind-html="description"></div>
-	<p><span ng-repeat="tag in post.tags | split:' '">{{tag}} </span></p>
+	<div class="post-title">
+		<h2>
+			<a class="title" href="{{post.link}}">{{post.title | handleUntitled}}</a>
+		</h2>
+		<div class="back-arrow" ng-click="back()">Return</div>
+	</div>
+	<p>
+		<a href="http://www.flickr.com/people/{{post.author_id}}/">
+			{{post.author | extractAuthor}}</a>
+		&emsp;|&emsp;Published: {{post.published | date:"d/M/yyyy 'at' h:mm"}} 
+	</p>
+	<div>
+		<img src="{{post.media.m}}">
+	</div>
+	<div>
+		<div ng-bind-html="description"></div>
+		<p><span ng-repeat="tag in post.tags | split:' '">{{tag}} </span></p>
+	</div>
 </div>
