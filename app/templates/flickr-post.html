@@ -1,4 +1,4 @@
-<div>
+<div class="post-container">
 	<div class="post-title">
 		<h2>
 			<a class="title" href="{{post.link}}">{{post.title | handleUntitled}}</a>
@@ -10,11 +10,13 @@
 			{{post.author | extractAuthor}}</a>
 		&emsp;|&emsp;Published: {{post.published | date:"d/M/yyyy 'at' h:mm"}} 
 	</p>
-	<div>
-		<img src="{{post.media.m}}">
-	</div>
-	<div>
-		<div ng-bind-html="description"></div>
-		<p><span ng-repeat="tag in post.tags | split:' '">{{tag}} </span></p>
+	<div class="post-content">
+		<div class="post-img">
+			<img src="{{post.media.m}}">
+		</div>
+		<div class="post-text">
+			<div ng-bind-html="description"></div>
+			<p><span ng-repeat="tag in post.tags | split:' '">{{tag}} </span></p>
+		</div>
 	</div>
 </div>

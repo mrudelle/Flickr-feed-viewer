@@ -143,5 +143,22 @@ a.title {
       border-width: 18px;
       margin-top: -18px; }
 
-.post-title {
+.app-view {
   position: relative; }
+
+.post-container {
+  position: relative; }
+  .post-container .post-title {
+    position: relative; }
+  .post-container .post-content {
+    position: relative; }
+    .post-container .post-content .post-img {
+      width: 240px; }
+      .post-container .post-content .post-img img {
+        width: 240px;
+        height: auto; }
+    .post-container .post-content .post-text {
+      position: absolute;
+      top: 0;
+      left: 240px;
+      padding: 10px; }

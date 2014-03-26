@@ -162,6 +162,37 @@ a.title {
 	}
 }
 
-.post-title {
+.app-view {
 	position: relative;
+}
+
+$post-img-width : 240px;
+
+.post-container {
+	position: relative;
+
+	.post-title {
+		position: relative;
+	}
+
+	.post-content {
+		position: relative;
+		
+		.post-img {
+			width: #{$post-img-width};
+			
+			img {
+				width: #{$post-img-width};
+				height: auto;
+			}
+		}
+
+		.post-text {
+			position: absolute;
+			top: 0;
+			left: 240px;
+			padding: 10px;
+		}
+	}
+
 }
