@@ -1,0 +1,201 @@
+body {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 300;
+	width: 800px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color: #F0F0F0;
+}
+
+ul {
+	padding-left: 0;
+}
+
+ul > li {
+	list-style-type: none;
+}
+
+$feed-img-height: 160px;
+$feed-img-width: 240px;
+$feeds-border-radius: 5px;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin border-radius-left($radius) {
+  	@include border-radius($radius 0 0 $radius);
+}
+
+@mixin box-shadow($color) {
+	-webkit-box-shadow: 0px 2px 2px 0px $color; 
+	   -moz-box-shadow: 0px 2px 2px 0px $color; 
+	   		box-shadow: 0px 2px 2px 0px $color;
+}
+
+.feed-item {
+	height: $feed-img-height;
+	background-color: #FFF;
+	margin-bottom: 10px;
+	position: relative;
+
+	@include border-radius($feeds-border-radius);
+	@include box-shadow(#E0E0E0);
+}
+
+.feed-item-text {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: $feed-img-width;
+	padding: 0px 15px;
+}
+
+.feed-item-img {
+	width: $feed-img-width;
+	height: $feed-img-height;
+	overflow: hidden;
+	display: inline-block;
+	position: relative;
+
+	@include border-radius-left($feeds-border-radius);
+	
+	img {
+		min-width: $feed-img-width;
+		min-height: $feed-img-height;
+
+		/*the next 5 statements allows to center the overflowing of an image in its div 
+		(src: http://stackoverflow.com/questions/14562457/center-oversized-image-in-div)*/
+		position: absolute;
+		top: -9999px;
+		bottom: -9999px;
+		left: -9999px;
+		right: -9999px;
+		margin: auto;
+	}
+}
+
+.truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+a {
+	text-decoration: none;
+	color: #456CC0;
+	font-weight: bold;
+
+	&:hover { text-decoration: underline; }
+
+	&:visited { color: #956CC0; }
+}
+
+a.title {
+	text-decoration: none;
+	color: #555;
+
+	&:hover { 
+		color: #818181; 
+		text-decoration: none;
+	}
+
+	&:visited { 
+		&:hover { color: #818181; }
+		color: #949494; 
+	}
+}
+
+@mixin back-arrow($background, $border, $height, $brdrwidth) {
+	// source : http://cssarrowplease.com/
+	position: absolute;
+	background: $background;
+	border: #{$brdrwidth}px solid $border;
+	$inner-padding : 10;
+	height: #{$height*2 - $inner-padding*2}px;
+	line-height: #{$height*2 - $inner-padding*2}px;
+	padding: #{$inner-padding}px;
+
+	@include border-radius(0 5px 5px 0);
+
+	&:after, &:before {
+		right: 100%;
+		top: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+
+	&:after {
+		// border-color: rgba(136, 183, 213, 0);
+		border-right-color: $background;
+		border-width: #{$height}px;
+		margin-top: -#{$height}px;
+	}
+
+	&:before {
+		// border-color: rgba(194, 225, 245, 0);
+		border-right-color: $border;
+		border-width: #{$height+$brdrwidth*1.5}px;
+		margin-top: -#{$height+$brdrwidth*1.5}px;
+	}
+}
+
+.back-arrow {
+	@include back-arrow(#DADADA, #CCCCCC, 15, 2);
+	font-weight: bold;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+	color: #434343;
+
+	&:hover {
+		@include back-arrow(#CCCCCC, #CCCCCC, 15, 2);
+		color: #F5F5F5;
+	}
+}
+
+.app-view {
+	position: relative;
+}
+
+$post-img-width : 240px;
+
+.post-container {
+	position: relative;
+
+	.post-title {
+		position: relative;
+	}
+
+	.post-content {
+		position: relative;
+		
+		.post-img {
+			width: #{$post-img-width};
+			
+			img {
+				width: #{$post-img-width};
+				height: auto;
+
+				@include border-radius(7px);
+				@include box-shadow(#D8D8D8);
+			}
+		}
+
+		.post-text {
+			position: absolute;
+			top: 0;
+			left: 240px;
+			padding: 10px;
+		}
+	}
+
+}

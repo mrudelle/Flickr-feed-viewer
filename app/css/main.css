@@ -1,0 +1,171 @@
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #F0F0F0; }
+
+ul {
+  padding-left: 0; }
+
+ul > li {
+  list-style-type: none; }
+
+.feed-item {
+  height: 160px;
+  background-color: #FFF;
+  margin-bottom: 10px;
+  position: relative;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 2px 2px 0px #e0e0e0;
+  -moz-box-shadow: 0px 2px 2px 0px #e0e0e0;
+  box-shadow: 0px 2px 2px 0px #e0e0e0; }
+
+.feed-item-text {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 240px;
+  padding: 0px 15px; }
+
+.feed-item-img {
+  width: 240px;
+  height: 160px;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  -webkit-border-radius: 5px 0 0 5px;
+  -moz-border-radius: 5px 0 0 5px;
+  -ms-border-radius: 5px 0 0 5px;
+  border-radius: 5px 0 0 5px; }
+  .feed-item-img img {
+    min-width: 240px;
+    min-height: 160px;
+    /*the next 5 statements allows to center the overflowing of an image in its div 
+    (src: http://stackoverflow.com/questions/14562457/center-oversized-image-in-div)*/
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto; }
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+a {
+  text-decoration: none;
+  color: #456CC0;
+  font-weight: bold; }
+  a:hover {
+    text-decoration: underline; }
+  a:visited {
+    color: #956CC0; }
+
+a.title {
+  text-decoration: none;
+  color: #555; }
+  a.title:hover {
+    color: #818181;
+    text-decoration: none; }
+  a.title:visited {
+    color: #949494; }
+    a.title:visited:hover {
+      color: #818181; }
+
+.back-arrow {
+  position: absolute;
+  background: #dadada;
+  border: 2px solid #cccccc;
+  height: 10px;
+  line-height: 10px;
+  padding: 10px;
+  -webkit-border-radius: 0 5px 5px 0;
+  -moz-border-radius: 0 5px 5px 0;
+  -ms-border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
+  font-weight: bold;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  color: #434343; }
+  .back-arrow:after, .back-arrow:before {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none; }
+  .back-arrow:after {
+    border-right-color: #dadada;
+    border-width: 15px;
+    margin-top: -15px; }
+  .back-arrow:before {
+    border-right-color: #cccccc;
+    border-width: 18px;
+    margin-top: -18px; }
+  .back-arrow:hover {
+    position: absolute;
+    background: #cccccc;
+    border: 2px solid #cccccc;
+    height: 10px;
+    line-height: 10px;
+    padding: 10px;
+    -webkit-border-radius: 0 5px 5px 0;
+    -moz-border-radius: 0 5px 5px 0;
+    -ms-border-radius: 0 5px 5px 0;
+    border-radius: 0 5px 5px 0;
+    color: #F5F5F5; }
+    .back-arrow:hover:after, .back-arrow:hover:before {
+      right: 100%;
+      top: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none; }
+    .back-arrow:hover:after {
+      border-right-color: #cccccc;
+      border-width: 15px;
+      margin-top: -15px; }
+    .back-arrow:hover:before {
+      border-right-color: #cccccc;
+      border-width: 18px;
+      margin-top: -18px; }
+
+.app-view {
+  position: relative; }
+
+.post-container {
+  position: relative; }
+  .post-container .post-title {
+    position: relative; }
+  .post-container .post-content {
+    position: relative; }
+    .post-container .post-content .post-img {
+      width: 240px; }
+      .post-container .post-content .post-img img {
+        width: 240px;
+        height: auto;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        -ms-border-radius: 7px;
+        border-radius: 7px;
+        -webkit-box-shadow: 0px 2px 2px 0px #d8d8d8;
+        -moz-box-shadow: 0px 2px 2px 0px #d8d8d8;
+        box-shadow: 0px 2px 2px 0px #d8d8d8; }
+    .post-container .post-content .post-text {
+      position: absolute;
+      top: 0;
+      left: 240px;
+      padding: 10px; }
