@@ -187,3 +187,6 @@ a.title {
     text-decoration: none; }
   .tag:visited {
     color: #9B9B9B; }
+
+.push-right {
+  float: right; }
