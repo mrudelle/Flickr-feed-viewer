@@ -7,6 +7,11 @@ flickrfeedControllers.controller('FeedListCtrl', ['$scope', '$http',
 		$http.jsonp('http://api.flickr.com/services/feeds/photos_public.gne?tags=potato&tagmode=all&format=json&jsoncallback=JSON_CALLBACK').success(function(data) {
 			$scope.feed = data;
 		});
+		$scope.$watch('tag', function(){
+			$http.jsonp('http://api.flickr.com/services/feeds/photos_public.gne?tags='+$scope.tag+'&tagmode=all&format=json&jsoncallback=JSON_CALLBACK').success(function(data) {
+				$scope.feed = data;
+			});
+		})
 	}]);
 
 flickrfeedControllers.controller('FeedPostCtrl', ['$scope','$routeParams', '$http', '$sce',
