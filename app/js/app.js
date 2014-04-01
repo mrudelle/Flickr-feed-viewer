@@ -9,7 +9,7 @@ var flickrfeedApp = angular.module('flickrfeedApp', [
 flickrfeedApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/feed', {
+      when('/feed/:tag', {
         templateUrl: 'templates/flickr-feed.html',
         controller: 'FeedListCtrl'
       }).
@@ -18,6 +18,6 @@ flickrfeedApp.config(['$routeProvider',
         controller: 'FeedPostCtrl'
       }).
       otherwise({
-        redirectTo: '/feed'
+        redirectTo: '/feed/potato'
       });
   }]);
