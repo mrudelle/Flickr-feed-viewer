@@ -8,7 +8,7 @@
 	<p>
 		<a href="http://www.flickr.com/people/{{post.author_id}}/">
 			{{post.author | extractAuthor}}</a>
-		&emsp;|&emsp;Published: {{post.published | date:"d/M/yyyy 'at' h:mm"}} 
+		&emsp;|&emsp;Published: {{post.published | parseDate}} 
 	</p>
 	<div class="post-content">
 		<div class="post-img">
