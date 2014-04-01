@@ -1,10 +1,31 @@
+html {
+	padding: 0 10px;
+}
+
 body {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	font-weight: 300;
-	max-width: 800px;
+	width: 100%;
+	max-width: 900px;
+	min-width: 500px;
 	margin-left:auto;
 	margin-right:auto;
 	background-color: #F0F0F0;
+}
+
+@media screen and (max-width:800px) {
+	.feed-item-text {
+		.view-author, .view-flickr{
+			float: left;
+		}
+		.published {
+			float: left;
+			width: 100%;
+		}
+		.view-author{
+			margin-left: 10px;
+		}
+	}
 }
 
 .app-view {
@@ -92,12 +113,12 @@ $feeds-border-radius: 5px;
 
 a {
 	text-decoration: none;
-	color: #456CC0;
+	color: #3498db;
 	font-weight: bold;
 
 	&:hover { text-decoration: underline; }
 
-	&:visited { color: #956CC0; }
+	&:visited { color: #2980b9; }
 }
 
 a.title {
