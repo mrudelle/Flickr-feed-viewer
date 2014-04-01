@@ -13,10 +13,9 @@
 						{{post.title | handleUntitled}}
 					</h2>
 				</a>
-				<p>	<a href="http://www.flickr.com/people/{{post.author_id}}/">{{post.author | extractAuthor}}</a>
-					 	Published: {{post.published | date:"d/M/yyyy 'at' h:mm"}} 
-					<a href="{{post.link}}">View on flickr</a>
-				</p>
+				<a href="http://www.flickr.com/people/{{post.author_id}}/" class="view-author">{{post.author | extractAuthor}}</a>
+				<span class="published">Published: {{post.published | date:"d/M/yyyy 'at' h:mm"}}</span>
+				<a href="{{post.link}}" class="view-flickr">View on flickr</a>
 			</div>
 		</li>
 	</ul>

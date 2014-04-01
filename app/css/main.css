@@ -1,11 +1,24 @@
+html {
+  padding: 0 10px; }
+
 body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
-  max-width: 800px;
+  width: 100%;
+  max-width: 900px;
+  min-width: 500px;
   margin-left: auto;
   margin-right: auto;
   background-color: #F0F0F0; }
 
+@media screen and (max-width: 800px) {
+  .feed-item-text .view-author, .feed-item-text .view-flickr {
+    float: left; }
+  .feed-item-text .published {
+    float: left;
+    width: 100%; }
+  .feed-item-text .view-author {
+    margin-left: 10px; } }
 .app-view {
   position: relative;
   width: 100%; }
@@ -66,12 +79,12 @@ ul > li {
 
 a {
   text-decoration: none;
-  color: #456CC0;
+  color: #3498db;
   font-weight: bold; }
   a:hover {
     text-decoration: underline; }
   a:visited {
-    color: #956CC0; }
+    color: #2980b9; }
 
 a.title {
   text-decoration: none;
@@ -187,3 +200,6 @@ a.title {
     text-decoration: none; }
   .tag:visited {
     color: #9B9B9B; }
+
+.push-right {
+  float: right; }
