@@ -3,12 +3,12 @@
 	<ul>
 		<li ng-repeat="post in feed.items" class="feed-item">
 			<div class="feed-item-img">
-				<a href="{{post.link | toInternalLink}}">
+				<a href="{{post.link | toInternalLink:tag.text}}">
 					<img src="{{post.media.m}}">
 				</a>
 			</div>
 			<div class="feed-item-text">
-				<a class="title" href="{{post.link | toInternalLink}}">
+				<a class="title" href="{{post.link | toInternalLink:tag.text}}">
 					<h2 class="truncate">
 						{{post.title | handleUntitled}}
 					</h2>

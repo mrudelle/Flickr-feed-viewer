@@ -22,9 +22,12 @@ flickrfeedControllers.controller('FeedListCtrl',
 			});	
 	});
 
-flickrfeedControllers.controller('FeedPostCtrl', ['$scope','$routeParams', '$http', '$sce',
-	function ($scope, $routeParams, $http, $sce) {
-		$http.jsonp('http://api.flickr.com/services/feeds/photos_public.gne?tags=potato&tagmode=all&format=json&jsoncallback=JSON_CALLBACK').success(function(data) {
+flickrfeedControllers.controller('FeedPostCtrl',
+	function ($scope, $routeParams, $http, $sce, Tagger) {
+		$scope.tag = Tagger;
+		$scope.tag.text = $routeParams.tag;
+		// make the input not editable
+		$http.jsonp('http://api.flickr.com/services/feeds/photos_public.gne?tags=' + $scope.tag.text + '&tagmode=all&format=json&jsoncallback=JSON_CALLBACK').success(function(data) {
 			$scope.feed = data;
 			for (var post in data.items) {
 				if (data.items[post].link == "http://www.flickr.com/photos/"+ $routeParams.author +"/"+ $routeParams.postId +"/"){
@@ -48,4 +51,4 @@ flickrfeedControllers.controller('FeedPostCtrl', ['$scope','$routeParams', '$htt
 			{
 		    	window.history.back();
 		  	};
-	}]);
+	});
