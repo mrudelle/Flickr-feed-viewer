@@ -8,7 +8,7 @@ flickrfeedControllers.controller('Navbar',
 	});
 
 flickrfeedControllers.controller('FeedListCtrl',
-	function ($scope, $http, $routeParams, Tagger) {
+	function ($scope, $http, $routeParams, $location, Tagger) {
 		$scope.tag = Tagger;
 		$scope.tag.text = $routeParams.tag;
 		$scope.$watch('tag.text', function()
@@ -17,6 +17,10 @@ flickrfeedControllers.controller('FeedListCtrl',
 				$http.jsonp('http://api.flickr.com/services/feeds/photos_public.gne?tags=' + $scope.tag.text + '&tagmode=all&format=json&jsoncallback=JSON_CALLBACK').success(function(data) {
 					if ($scope.tag.text === newTag) {
 						$scope.feed = data;
+						// avoid text to be inserted when we empty tthe input field
+						if ($scope.tag.text !== ""){
+							$location.path("/feed/" + $scope.tag.text);
+						}
 					}
 				});
 			});	
