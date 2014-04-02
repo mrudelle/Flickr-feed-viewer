@@ -3,8 +3,13 @@
 var flickrfeedControllers = angular.module('flickrfeedControllers', []);
 
 flickrfeedControllers.controller('Navbar',
-	function ($scope, $routeParams, Tagger) {
+	function ($scope, $location, Tagger) {
 		$scope.tag = Tagger;
+		console.log($location.path() + " and " +  !/^\/feed\//.test($location.path()))
+		$scope.disableSearch = function() 
+			{
+				return !/^\/feed\//.test($location.path());
+			};
 	});
 
 flickrfeedControllers.controller('FeedListCtrl',

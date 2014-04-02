@@ -17,7 +17,7 @@
 <body>
 	<div class="navbar" ng-controller="Navbar">
 		<h1>Flickr Public Feed / 
-			<input type="text" ng-model="tag.text">
+			<input type="text" ng-model="tag.text" ng-disabled="disableSearch()">
 			<div class="push-right">
 				<div class="g-plusone" data-href="http://mrudelle.github.io/Flickr-feed-viewer/app/"></div>
 			</div>
