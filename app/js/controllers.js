@@ -2,22 +2,25 @@
 
 var flickrfeedControllers = angular.module('flickrfeedControllers', []);
 
-flickrfeedControllers.controller('FeedListCtrl', ['$scope', '$http', '$routeParams',
-	function ($scope, $http, $routeParams) {
-		// $scope.tag = $routeParams.tag;
+flickrfeedControllers.controller('Navbar',
+	function ($scope, $routeParams, Tagger) {
+		$scope.tag = Tagger;
+	});
 
-		$scope.$watch('tag', function()
+flickrfeedControllers.controller('FeedListCtrl',
+	function ($scope, $http, $routeParams, Tagger) {
+		$scope.tag = Tagger;
+		$scope.tag.text = $routeParams.tag;
+		$scope.$watch('tag.text', function()
 			{
-				var newTag = $scope.tag;
-				$http.jsonp('http://api.flickr.com/services/feeds/photos_public.gne?tags=' + $scope.tag + '&tagmode=all&format=json&jsoncallback=JSON_CALLBACK').success(function(data) {
-					if ($scope.tag === newTag) {
+				var newTag = $scope.tag.text;
+				$http.jsonp('http://api.flickr.com/services/feeds/photos_public.gne?tags=' + $scope.tag.text + '&tagmode=all&format=json&jsoncallback=JSON_CALLBACK').success(function(data) {
+					if ($scope.tag.text === newTag) {
 						$scope.feed = data;
-					} else {
-						console.log("not ok:" + newTag)
 					}
 				});
 			});	
-	}]);
+	});
 
 flickrfeedControllers.controller('FeedPostCtrl', ['$scope','$routeParams', '$http', '$sce',
 	function ($scope, $routeParams, $http, $sce) {

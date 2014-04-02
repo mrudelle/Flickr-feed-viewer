@@ -6,6 +6,10 @@ var flickrfeedApp = angular.module('flickrfeedApp', [
   'ngRoute'
 ]);
 
+flickrfeedApp.factory('Tagger', function(){
+  return {text:''};
+});
+
 flickrfeedApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.

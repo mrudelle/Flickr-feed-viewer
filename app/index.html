@@ -15,12 +15,14 @@
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<h1>Flickr Public Feed / 
-		<input ng-model="tag" value="{{tag}}">
-		<div class="push-right">
-			<div class="g-plusone" data-href="http://mrudelle.github.io/Flickr-feed-viewer/app/"></div>
-		</div>
-	</h1>
+	<div class="navbar" ng-controller="Navbar">
+		<h1>Flickr Public Feed / 
+			<input type="text" ng-model="tag.text">
+			<div class="push-right">
+				<div class="g-plusone" data-href="http://mrudelle.github.io/Flickr-feed-viewer/app/"></div>
+			</div>
+		</h1>
+	</div>
 
 
 	<!-- Place this tag after the last +1 button tag. -->
