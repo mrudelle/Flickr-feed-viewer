@@ -2,16 +2,41 @@
 
 var flickrfeedControllers = angular.module('flickrfeedControllers', []);
 
-flickrfeedControllers.controller('FeedListCtrl', ['$scope', '$http',
-	function ($scope, $http) {
-		$http.jsonp('http://api.flickr.com/services/feeds/photos_public.gne?tags=potato&tagmode=all&format=json&jsoncallback=JSON_CALLBACK').success(function(data) {
-			$scope.feed = data;
-		});
-	}]);
+flickrfeedControllers.controller('Navbar',
+	function ($scope, $location, Tagger) {
+		$scope.tag = Tagger;
+		console.log($location.path() + " and " +  !/^\/feed\//.test($location.path()))
+		$scope.disableSearch = function() 
+			{
+				return !/^\/feed\//.test($location.path());
+			};
+	});
 
-flickrfeedControllers.controller('FeedPostCtrl', ['$scope','$routeParams', '$http', '$sce',
-	function ($scope, $routeParams, $http, $sce) {
-		$http.jsonp('http://api.flickr.com/services/feeds/photos_public.gne?tags=potato&tagmode=all&format=json&jsoncallback=JSON_CALLBACK').success(function(data) {
+flickrfeedControllers.controller('FeedListCtrl',
+	function ($scope, $http, $routeParams, $location, Tagger) {
+		$scope.tag = Tagger;
+		$scope.tag.text = $routeParams.tag;
+		$scope.$watch('tag.text', function()
+			{
+				var newTag = $scope.tag.text;
+				$http.jsonp('http://api.flickr.com/services/feeds/photos_public.gne?tags=' + $scope.tag.text + '&tagmode=all&format=json&jsoncallback=JSON_CALLBACK').success(function(data) {
+					if ($scope.tag.text === newTag) {
+						$scope.feed = data;
+						// avoid text to be inserted when we empty tthe input field
+						if ($scope.tag.text !== ""){
+							$location.path("/feed/" + $scope.tag.text);
+						}
+					}
+				});
+			});	
+	});
+
+flickrfeedControllers.controller('FeedPostCtrl',
+	function ($scope, $routeParams, $http, $sce, Tagger) {
+		$scope.tag = Tagger;
+		$scope.tag.text = $routeParams.tag;
+		// make the input not editable
+		$http.jsonp('http://api.flickr.com/services/feeds/photos_public.gne?tags=' + $scope.tag.text + '&tagmode=all&format=json&jsoncallback=JSON_CALLBACK').success(function(data) {
 			$scope.feed = data;
 			for (var post in data.items) {
 				if (data.items[post].link == "http://www.flickr.com/photos/"+ $routeParams.author +"/"+ $routeParams.postId +"/"){
@@ -35,4 +60,4 @@ flickrfeedControllers.controller('FeedPostCtrl', ['$scope','$routeParams', '$htt
 			{
 		    	window.history.back();
 		  	};
-	}]);
+	});

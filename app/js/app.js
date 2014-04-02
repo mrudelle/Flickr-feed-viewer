@@ -6,18 +6,22 @@ var flickrfeedApp = angular.module('flickrfeedApp', [
   'ngRoute'
 ]);
 
+flickrfeedApp.factory('Tagger', function(){
+  return {text:''};
+});
+
 flickrfeedApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/feed', {
+      when('/feed/:tag', {
         templateUrl: 'templates/flickr-feed.html',
         controller: 'FeedListCtrl'
       }).
-      when('/post/:author/:postId', {
+      when('/post/:tag/:author/:postId', {
         templateUrl: 'templates/flickr-post.html',
         controller: 'FeedPostCtrl'
       }).
       otherwise({
-        redirectTo: '/feed'
+        redirectTo: '/feed/potato'
       });
   }]);
