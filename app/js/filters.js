@@ -10,10 +10,10 @@ flickrfeedFilters.filter('extractAuthor', function() {
 });
 
 flickrfeedFilters.filter('toInternalLink', function() {
-		return function(input) {
+		return function(input, tag) {
 			var authorPatt = /\/photos\/(.+)\/(.+)\/$/;
 			var data = authorPatt.exec(input)
-			return "#/post/" + data[1] + "/" + data[2];
+			return "#/post/" + tag + "/" + data[1] + "/" + data[2];
 		};
 });
 
