@@ -192,12 +192,21 @@ a.title {
   float: right; }
 
 .navbar input {
-  border: none;
+  border: 0;
   background-color: transparent;
   padding: 2px 7px;
-  margin: 0;
+  margin: 1px;
   text-transform: capitalize;
   font-size: 1em;
   font-weight: bold;
   width: 25%;
-  color: #858585; }
+  color: #888888; }
+  .navbar input:focus {
+    outline: 0;
+    color: #AAAAAA;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #AAAAAA;
+    margin: 0; }

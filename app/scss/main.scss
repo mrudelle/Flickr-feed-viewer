@@ -20,9 +20,6 @@ ul > li {
 	list-style-type: none;
 }
 
-$color-blue-main : #456CC0;
-$color-blue-darker : #956CC0;
-
 $feed-img-height: 160px;
 $feed-img-width: 240px;
 $feeds-border-radius: 5px;
@@ -231,14 +228,22 @@ $post-img-width : 240px;
 	// border-style: solid;
 	// border-width: 0 0 2px 0;
 	// border-color: $color-blue-main;
-	border: none;
+	border: 0;
 	background-color: transparent;
-	//@include border-radius(5px);
 	padding: 2px 7px;
-	margin: 0;
+	margin: 1px;
 	text-transform: capitalize;
 	font-size: 1em;
 	font-weight: bold;
 	width: 25%;
-	color: #858585;
+	color: #888888;
+
+	&:focus {
+ 		outline: 0;
+ 		color: #AAAAAA;
+ 		@include border-radius(5px);
+ 		border: 1px solid #AAAAAA;
+ 		margin: 0;
+ 		//background-color: #F0F0F0;
+ 	}
 }
