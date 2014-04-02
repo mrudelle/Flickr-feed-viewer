@@ -16,7 +16,7 @@
 		</div>
 		<div class="post-text">
 			<div ng-bind-html="description"></div>
-			<p>Tags: <a ng-repeat="tag in post.tags | split:' '" href="http://www.flickr.com/photos/tags/{{tag}}/" class="tag">{{tag}} </a></p>
+			<p>Tags: <a ng-repeat="tag in post.tags | split:' '" href="#/feed/{{tag}}/" class="tag">{{tag}} </a></p>
 		</div>
 	</div>
 </div>
