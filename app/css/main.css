@@ -190,3 +190,14 @@ a.title {
 
 .push-right {
   float: right; }
+
+.navbar input {
+  border: none;
+  background-color: transparent;
+  padding: 2px 7px;
+  margin: 0;
+  text-transform: capitalize;
+  font-size: 1em;
+  font-weight: bold;
+  width: 25%;
+  color: #858585; }
