@@ -250,7 +250,7 @@ $post-img-width : 240px;
 	// border-width: 0 0 2px 0;
 	// border-color: $color-blue-main;
 	border: 0;
-	background-color: white;
+	background-color: transparent;
 	padding: 2px 7px;
 	margin: 1px;
 	text-transform: capitalize;
@@ -258,12 +258,13 @@ $post-img-width : 240px;
 	font-weight: bold;
 	width: 25%;
 	color: #888888;
-	@include border-radius(5px);
 
 	&:focus {
  		outline: 0;
- 		//color: #AAAAAA;
+ 		color: #AAAAAA;
+ 		@include border-radius(5px);
  		border: 1px solid #AAAAAA;
  		margin: 0;
+ 		//background-color: #F0F0F0;
  	}
 }
