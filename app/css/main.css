@@ -206,20 +206,19 @@ a.title {
 
 .navbar input {
   border: 0;
-  background-color: transparent;
+  background-color: white;
   padding: 2px 7px;
   margin: 1px;
   text-transform: capitalize;
   font-size: 1em;
   font-weight: bold;
   width: 25%;
-  color: #888888; }
+  color: #888888;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
   .navbar input:focus {
     outline: 0;
-    color: #AAAAAA;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    border-radius: 5px;
     border: 1px solid #AAAAAA;
     margin: 0; }
