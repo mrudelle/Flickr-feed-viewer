@@ -6,7 +6,7 @@ body {
   font-weight: 300;
   width: 100%;
   max-width: 900px;
-  min-width: 240px;
+  min-width: 260px;
   margin-left: auto;
   margin-right: auto;
   background-color: #F0F0F0; }
@@ -34,13 +34,37 @@ body {
       content: "";
       display: none; }
 
-  .feed-item-text .view-author, .feed-item-text .view-flickr {
-    float: left; }
-  .feed-item-text .published {
-    float: left;
-    width: 100%; }
-  .feed-item-text .view-author {
-    margin-right: 20px; } }
+  body {
+    background-color: #E7E7E7; }
+    body .feed-item {
+      text-align: center;
+      height: auto;
+      padding-bottom: 10px;
+      margin-bottom: 20px; }
+      body .feed-item .feed-item-text {
+        position: relative;
+        left: 0; }
+        body .feed-item .feed-item-text .view-author, body .feed-item .feed-item-text .view-flickr, body .feed-item .feed-item-text .published {
+          float: none;
+          display: block;
+          margin-bottom: 10px;
+          margin-right: 0; }
+      body .feed-item .feed-item-img {
+        width: 100%;
+        -webkit-border-radius: 5px 5px 0 0;
+        -moz-border-radius: 5px 5px 0 0;
+        -ms-border-radius: 5px 5px 0 0;
+        border-radius: 5px 5px 0 0; }
+        body .feed-item .feed-item-img img {
+          min-width: 100%;
+          /*the next 5 statements allows to center the overflowing of an image in its div 
+          (src: http://stackoverflow.com/questions/14562457/center-oversized-image-in-div)*/
+          position: absolute;
+          top: -9999px;
+          bottom: -9999px;
+          left: -9999px;
+          right: -9999px;
+          margin: auto; } }
 .app-view {
   position: relative;
   width: 100%; }

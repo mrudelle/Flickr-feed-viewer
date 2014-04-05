@@ -7,10 +7,41 @@ body {
 	font-weight: 300;
 	width: 100%;
 	max-width: 900px;
-	min-width: 240px;
+	min-width: 260px;
 	margin-left:auto;
 	margin-right:auto;
 	background-color: #F0F0F0;
+}
+
+$feed-img-height: 160px;
+$feed-img-width: 240px;
+$feeds-border-radius: 5px;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin border-radius-left($radius) {
+  	@include border-radius($radius 0 0 $radius);
+}
+
+@mixin border-radius-top($radius) {
+  	@include border-radius($radius $radius 0 0);
+}
+
+@mixin box-shadow($color) {
+	-webkit-box-shadow: 0px 2px 2px 0px $color; 
+	   -moz-box-shadow: 0px 2px 2px 0px $color; 
+	   		box-shadow: 0px 2px 2px 0px $color;
+}
+
+@mixin no-box-shadow() {
+	-webkit-box-shadow: none; 
+	   -moz-box-shadow: none; 
+	   		box-shadow: none;
 }
 
 @media screen and (max-width:800px) {
@@ -58,16 +89,45 @@ body {
 		}
 	}
 
-	.feed-item-text {
-		.view-author, .view-flickr{
-			float: left;
-		}
-		.published {
-			float: left;
-			width: 100%;
-		}
-		.view-author{
-			margin-right: 20px;
+	body {
+
+		background-color: #E7E7E7;
+
+		.feed-item {
+			text-align: center;
+			height: auto;
+			padding-bottom: 10px;
+			margin-bottom: 20px;
+
+			.feed-item-text {
+				position: relative;
+				left: 0;
+				.view-author, .view-flickr, .published{
+					float: none;
+					display: block;
+					margin-bottom: 10px;
+					margin-right: 0;
+				}
+			}
+
+			.feed-item-img {
+				width: 100%;
+
+				@include border-radius-top($feeds-border-radius);
+				
+				img {
+					min-width: 100%;
+
+					/*the next 5 statements allows to center the overflowing of an image in its div 
+					(src: http://stackoverflow.com/questions/14562457/center-oversized-image-in-div)*/
+					position: absolute;
+					top: -9999px;
+					bottom: -9999px;
+					left: -9999px;
+					right: -9999px;
+					margin: auto;
+				}
+			}
 		}
 	}
 }
@@ -83,33 +143,6 @@ ul {
 
 ul > li {
 	list-style-type: none;
-}
-
-$feed-img-height: 160px;
-$feed-img-width: 240px;
-$feeds-border-radius: 5px;
-
-@mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
-}
-
-@mixin border-radius-left($radius) {
-  	@include border-radius($radius 0 0 $radius);
-}
-
-@mixin box-shadow($color) {
-	-webkit-box-shadow: 0px 2px 2px 0px $color; 
-	   -moz-box-shadow: 0px 2px 2px 0px $color; 
-	   		box-shadow: 0px 2px 2px 0px $color;
-}
-
-@mixin no-box-shadow() {
-	-webkit-box-shadow: none; 
-	   -moz-box-shadow: none; 
-	   		box-shadow: none;
 }
 
 .feed-item {
