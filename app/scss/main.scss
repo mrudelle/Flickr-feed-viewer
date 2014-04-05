@@ -7,13 +7,57 @@ body {
 	font-weight: 300;
 	width: 100%;
 	max-width: 900px;
-	min-width: 500px;
+	min-width: 240px;
 	margin-left:auto;
 	margin-right:auto;
 	background-color: #F0F0F0;
 }
 
 @media screen and (max-width:800px) {
+	.feed-item-text {
+		.view-author, .view-flickr{
+			float: left;
+		}
+		.published {
+			float: left;
+			width: 100%;
+		}
+		.view-author{
+			margin-right: 20px;
+		}
+	}
+}
+
+@media screen and (max-width:610px) {
+	.navbar {
+
+		h1 {
+			text-align: center;
+
+			input {
+				width: 50%;
+			}
+
+			input, .push-right {
+				float: none;
+				position: relative;
+				text-align: center;
+			}
+
+			.push-right {
+				padding-top: 10px;
+			}
+
+			.title {
+
+				&:after {
+					content: "";
+					display: none;
+				}
+			}
+		}
+	}
+
 	.feed-item-text {
 		.view-author, .view-flickr{
 			float: left;
@@ -248,27 +292,46 @@ $post-img-width : 240px;
 }
 
 .push-right {
-	float: right;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 
-.navbar input {
-	border: 0;
-	background-color: white;
-	padding: 2px 7px;
-	margin: 1px;
-	text-transform: capitalize;
-	font-size: 1em;
-	font-weight: bold;
-	width: 25%;
-	color: #888888;
-	@include border-radius(5px);
-	@include box-shadow(#E0E0E0);
+.navbar {
 
-	&:focus {
- 		outline: 0;
- 		color: #AAAAAA;
- 		border: 1px solid #AAAAAA;
- 		margin: 0;
- 		@include no-box-shadow();
- 	}
+	.title {
+
+		&:after {
+			content: " /";
+		}
+	}
+
+	.navbar-title{
+
+		position: relative;
+
+	}
+
+	input {
+
+		border: 0;
+		background-color: white;
+		padding: 2px 7px;
+		margin: 1px;
+		text-transform: capitalize;
+		font-size: 1em;
+		font-weight: bold;
+		width: 25%;
+		color: #888888;
+		@include border-radius(5px);
+		@include box-shadow(#E0E0E0);
+
+		&:focus {
+	 		outline: 0;
+	 		color: #AAAAAA;
+	 		border: 1px solid #AAAAAA;
+	 		margin: 0;
+	 		@include no-box-shadow();
+	 	}
+	}
 }

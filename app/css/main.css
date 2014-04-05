@@ -6,12 +6,34 @@ body {
   font-weight: 300;
   width: 100%;
   max-width: 900px;
-  min-width: 500px;
+  min-width: 240px;
   margin-left: auto;
   margin-right: auto;
   background-color: #F0F0F0; }
 
 @media screen and (max-width: 800px) {
+  .feed-item-text .view-author, .feed-item-text .view-flickr {
+    float: left; }
+  .feed-item-text .published {
+    float: left;
+    width: 100%; }
+  .feed-item-text .view-author {
+    margin-right: 20px; } }
+@media screen and (max-width: 610px) {
+  .navbar h1 {
+    text-align: center; }
+    .navbar h1 input {
+      width: 50%; }
+    .navbar h1 input, .navbar h1 .push-right {
+      float: none;
+      position: relative;
+      text-align: center; }
+    .navbar h1 .push-right {
+      padding-top: 10px; }
+    .navbar h1 .title:after {
+      content: "";
+      display: none; }
+
   .feed-item-text .view-author, .feed-item-text .view-flickr {
     float: left; }
   .feed-item-text .published {
@@ -202,8 +224,14 @@ a.title {
     color: #9B9B9B; }
 
 .push-right {
-  float: right; }
+  position: absolute;
+  top: 0;
+  right: 0; }
 
+.navbar .title:after {
+  content: " /"; }
+.navbar .navbar-title {
+  position: relative; }
 .navbar input {
   border: 0;
   background-color: white;
