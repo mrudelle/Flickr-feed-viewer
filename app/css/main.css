@@ -56,15 +56,15 @@ body {
         -ms-border-radius: 5px 5px 0 0;
         border-radius: 5px 5px 0 0; }
         body .feed-item .feed-item-img img {
-          min-width: 100%;
-          /*the next 5 statements allows to center the overflowing of an image in its div 
-          (src: http://stackoverflow.com/questions/14562457/center-oversized-image-in-div)*/
-          position: absolute;
-          top: -9999px;
-          bottom: -9999px;
-          left: -9999px;
-          right: -9999px;
-          margin: auto; } }
+          min-width: 100%; }
+    body .post-container .post-content .post-img {
+      width: 100%; }
+      body .post-container .post-content .post-img img {
+        width: 100%; }
+    body .post-container .post-content .post-text {
+      position: relative;
+      left: 0;
+      margin-top: 10px; } }
 .app-view {
   position: relative;
   width: 100%; }

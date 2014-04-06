@@ -15,6 +15,7 @@ body {
 
 $feed-img-height: 160px;
 $feed-img-width: 240px;
+$post-img-width: 240px;
 $feeds-border-radius: 5px;
 
 @mixin border-radius($radius) {
@@ -117,17 +118,33 @@ $feeds-border-radius: 5px;
 				
 				img {
 					min-width: 100%;
-
-					/*the next 5 statements allows to center the overflowing of an image in its div 
-					(src: http://stackoverflow.com/questions/14562457/center-oversized-image-in-div)*/
-					position: absolute;
-					top: -9999px;
-					bottom: -9999px;
-					left: -9999px;
-					right: -9999px;
-					margin: auto;
 				}
 			}
+		}
+
+		.post-container {
+
+			// .post-title {
+			// 	position: relative;
+			// }
+
+			.post-content {
+				
+				.post-img {
+					width: 100%;
+					
+					img {
+						width: 100%;
+					}
+				}
+
+				.post-text {
+					position: relative;
+					left: 0;
+					margin-top: 10px;
+				}
+			}
+
 		}
 	}
 }
@@ -270,8 +287,6 @@ a.title {
 		color: #F5F5F5;
 	}
 }
-
-$post-img-width : 240px;
 
 .post-container {
 	position: relative;
