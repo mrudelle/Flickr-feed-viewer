@@ -3,7 +3,8 @@
 var flickrfeedApp = angular.module('flickrfeedApp', [
   'flickrfeedControllers',
   'flickrfeedFilters',
-  'ngRoute'
+  'ngRoute',
+  'ngAnimate'
 ]);
 
 flickrfeedApp.factory('Tagger', function(){

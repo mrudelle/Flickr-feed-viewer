@@ -227,3 +227,15 @@ a.title {
   width: 100%;
   text-align: center;
   padding-top: 20px; }
+  .top-of-feed-container.ng-hide-add, .top-of-feed-container.ng-hide-remove {
+    -webkit-transition: all linear 0.15s;
+    -moz-transition: all linear 0.15s;
+    -o-transition: all linear 0.15s;
+    transition: all linear 0.15s;
+    display: block !important; }
+  .top-of-feed-container.ng-hide-add.ng-hide-add-active, .top-of-feed-container.ng-hide-remove {
+    opacity: 0;
+    margin-top: -2.5em; }
+  .top-of-feed-container.ng-hide-add, .top-of-feed-container.ng-hide-remove.ng-hide-remove-active {
+    opacity: 1;
+    margin-top: 0px; }
