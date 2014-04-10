@@ -64,6 +64,22 @@ $feeds-border-radius: 5px;
 
 	@include border-radius($feeds-border-radius);
 	@include box-shadow(#E0E0E0);
+
+	&.ng-move, &.ng-enter, &.ng-leave {
+		@include transition(0.5s ease all);
+	}
+
+	&.ng-leave.ng-leave-active,
+	&.ng-move,
+	&.ng-enter {
+		opacity: 0;
+	}
+	 
+	&.ng-leave,
+	&.ng-move.ng-move-active,
+	&.ng-enter.ng-enter-active {
+		opacity: 1;
+	}
 }
 
 .feed-item-text {
@@ -273,7 +289,7 @@ $post-img-width : 240px;
 	padding-top: 20px;
 
 	&.ng-hide-add, &.ng-hide-remove {
-		@include transition(all linear 0.15s);
+		@include transition(all ease-out 0.15s);
 		display:block!important;
 	}
 
@@ -284,6 +300,6 @@ $post-img-width : 240px;
 
 	&.ng-hide-add, &.ng-hide-remove.ng-hide-remove-active  {
 		opacity: 1;
-		margin-top: 0px;
+		margin-top: 0;
 	}
 }
