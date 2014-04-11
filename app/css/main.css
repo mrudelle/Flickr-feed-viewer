@@ -248,3 +248,5 @@ a.title {
   .top-of-feed-container.ng-hide-add, .top-of-feed-container.ng-hide-remove.ng-hide-remove-active {
     opacity: 1;
     margin-top: 0; }
+  .top-of-feed-container span {
+    line-height: 1.5em; }

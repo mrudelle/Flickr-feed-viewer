@@ -45,6 +45,8 @@ flickrfeedControllers.controller('FeedPostCtrl',
 		$scope.tag.text = $routeParams.tag;
 		$scope.loading = true;
 		$scope.notfound = false;
+		$scope.author = $routeParams.author;
+		$scope.postId = $routeParams.postId;
 		// make the input not editable
 		$http.jsonp('http://api.flickr.com/services/feeds/photos_public.gne?tags=' + $scope.tag.text + '&tagmode=all&format=json&jsoncallback=JSON_CALLBACK').success(function(data) {
 			$scope.feed = data;
