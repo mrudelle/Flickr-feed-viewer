@@ -43,6 +43,8 @@ flickrfeedControllers.controller('FeedPostCtrl',
 	function ($scope, $routeParams, $http, $sce, Tagger) {
 		$scope.tag = Tagger;
 		$scope.tag.text = $routeParams.tag;
+		$scope.loading = true;
+		$scope.notfound = false;
 		// make the input not editable
 		$http.jsonp('http://api.flickr.com/services/feeds/photos_public.gne?tags=' + $scope.tag.text + '&tagmode=all&format=json&jsoncallback=JSON_CALLBACK').success(function(data) {
 			$scope.feed = data;
@@ -62,6 +64,11 @@ flickrfeedControllers.controller('FeedPostCtrl',
 					break;
 				}
 			};
+
+			$scope.loading = false;
+			if ($scope.post === undefined) {
+				$scope.notfound = true;
+			}
 		});
 
 		$scope.back = function() 
