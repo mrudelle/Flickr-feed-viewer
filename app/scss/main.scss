@@ -72,12 +72,15 @@ $feeds-border-radius: 5px;
 	&.ng-leave.ng-leave-active,
 	&.ng-move,
 	&.ng-enter {
+		//this animation might be a little too much
+		//margin-top: 100%;
 		opacity: 0;
 	}
 	 
 	&.ng-leave,
 	&.ng-move.ng-move-active,
 	&.ng-enter.ng-enter-active {
+		//margin-top: 0;
 		opacity: 1;
 	}
 }
