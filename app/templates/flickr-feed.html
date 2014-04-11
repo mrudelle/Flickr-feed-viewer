@@ -1,5 +1,11 @@
 
 <div>
+	<div ng-show="loading" class="top-of-feed-container">
+		<span class="letterpress">Loading ...</span>
+	</div>
+	<div ng-show="emptylist" class="top-of-feed-container">
+		<span class="letterpress">There is no post with this tag</span>
+	</div>
 	<ul>
 		<li ng-repeat="post in feed.items" class="feed-item">
 			<div class="feed-item-img">
