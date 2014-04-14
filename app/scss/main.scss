@@ -49,23 +49,22 @@ $feeds-border-radius: 5px;
 	.feed-item-text {
 		.feed-description {
 			position: relative;
-
-			.view-author, .view-flickr{
-				float: left;
-				position: relative;
-				top: 1.5em;
-			}
-			.published {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-			}
-			.view-author{
-				margin-right: 20px;
-			}
 		}
 
+		.view-author, .view-flickr{
+			float: left;
+			position: relative;
+			top: 1.5em;
+		}
+		.published {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+		.view-author{
+			margin-right: 20px;
+		}
 	}
 }
 
@@ -114,6 +113,8 @@ $feeds-border-radius: 5px;
 				left: 0;
 				.view-author, .view-flickr, .published{
 					float: none;
+					position: relative;
+					top: 0;
 					display: block;
 					margin-bottom: 10px;
 					margin-right: 0;
@@ -132,10 +133,6 @@ $feeds-border-radius: 5px;
 		}
 
 		.post-container {
-
-			// .post-title {
-			// 	position: relative;
-			// }
 
 			.post-content {
 				

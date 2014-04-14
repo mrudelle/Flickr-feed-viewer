@@ -14,17 +14,17 @@ body {
 @media screen and (max-width: 800px) {
   .feed-item-text .feed-description {
     position: relative; }
-    .feed-item-text .feed-description .view-author, .feed-item-text .feed-description .view-flickr {
-      float: left;
-      position: relative;
-      top: 1.5em; }
-    .feed-item-text .feed-description .published {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%; }
-    .feed-item-text .feed-description .view-author {
-      margin-right: 20px; } }
+  .feed-item-text .view-author, .feed-item-text .view-flickr {
+    float: left;
+    position: relative;
+    top: 1.5em; }
+  .feed-item-text .published {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; }
+  .feed-item-text .view-author {
+    margin-right: 20px; } }
 @media screen and (max-width: 610px) {
   .navbar h1 {
     text-align: center; }
@@ -52,6 +52,8 @@ body {
         left: 0; }
         body .feed-item .feed-item-text .view-author, body .feed-item .feed-item-text .view-flickr, body .feed-item .feed-item-text .published {
           float: none;
+          position: relative;
+          top: 0;
           display: block;
           margin-bottom: 10px;
           margin-right: 0; }
