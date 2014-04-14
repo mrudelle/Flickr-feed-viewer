@@ -1,5 +1,11 @@
 
 <div>
+	<div ng-show="loading" class="top-of-feed-container">
+		<span class="letterpress">Loading ...</span>
+	</div>
+	<div ng-show="emptylist" class="top-of-feed-container">
+		<span class="letterpress">There is no post with this tag</span>
+	</div>
 	<ul>
 		<li ng-repeat="post in feed.items" class="feed-item">
 			<div class="feed-item-img">
@@ -13,9 +19,11 @@
 						{{post.title | handleUntitled}}
 					</h2>
 				</a>
-				<a href="http://www.flickr.com/people/{{post.author_id}}/" class="view-author">{{post.author | extractAuthor}}</a>
-				<span class="published">Published: {{post.published | parseDate}}</span>
-				<a href="{{post.link}}" class="view-flickr">View on flickr</a>
+				<div class="feed-description">
+					<a href="http://www.flickr.com/people/{{post.author_id}}/" class="view-author">{{post.author | extractAuthor}}</a>
+					<span class="published">Published: {{post.published | parseDate}}</span>
+					<a href="{{post.link}}" class="view-flickr">View on flickr</a>
+				</div>
 			</div>
 		</li>
 	</ul>

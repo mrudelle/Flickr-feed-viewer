@@ -32,7 +32,7 @@ flickrfeedFilters.filter('extractMessage', function() {
 
 flickrfeedFilters.filter('handleUntitled', function() {
 		return function(input) {
-			return input === "" ? "Untitled" : input;
+			return input.trim() === "" ? "Untitled" : input;
 		};
 });
 
