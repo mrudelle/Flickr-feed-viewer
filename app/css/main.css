@@ -12,13 +12,19 @@ body {
   background-color: #F0F0F0; }
 
 @media screen and (max-width: 800px) {
-  .feed-item-text .view-author, .feed-item-text .view-flickr {
-    float: left; }
-  .feed-item-text .published {
-    float: left;
-    width: 100%; }
-  .feed-item-text .view-author {
-    margin-right: 20px; } }
+  .feed-item-text .feed-description {
+    position: relative; }
+    .feed-item-text .feed-description .view-author, .feed-item-text .feed-description .view-flickr {
+      float: left;
+      position: relative;
+      top: 1.5em; }
+    .feed-item-text .feed-description .published {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%; }
+    .feed-item-text .feed-description .view-author {
+      margin-right: 20px; } }
 @media screen and (max-width: 610px) {
   .navbar h1 {
     text-align: center; }

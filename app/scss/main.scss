@@ -47,16 +47,25 @@ $feeds-border-radius: 5px;
 
 @media screen and (max-width:800px) {
 	.feed-item-text {
-		.view-author, .view-flickr{
-			float: left;
+		.feed-description {
+			position: relative;
+
+			.view-author, .view-flickr{
+				float: left;
+				position: relative;
+				top: 1.5em;
+			}
+			.published {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+			}
+			.view-author{
+				margin-right: 20px;
+			}
 		}
-		.published {
-			float: left;
-			width: 100%;
-		}
-		.view-author{
-			margin-right: 20px;
-		}
+
 	}
 }
 
