@@ -1,7 +1,13 @@
+html {
+	padding: 0 10px;
+}
+
 body {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	font-weight: 300;
-	max-width: 800px;
+	width: 100%;
+	max-width: 900px;
+	min-width: 260px;
 	margin-left:auto;
 	margin-right:auto;
 	background-color: #F0F0F0;
@@ -9,21 +15,9 @@ body {
 	overflow-y: scroll; 
 }
 
-.app-view {
-	position: relative;
-	width: 100%;
-}
-
-ul {
-	padding-left: 0;
-}
-
-ul > li {
-	list-style-type: none;
-}
-
 $feed-img-height: 160px;
 $feed-img-width: 240px;
+$post-img-width: 240px;
 $feeds-border-radius: 5px;
 
 @mixin border-radius($radius) {
@@ -35,6 +29,10 @@ $feeds-border-radius: 5px;
 
 @mixin border-radius-left($radius) {
   	@include border-radius($radius 0 0 $radius);
+}
+
+@mixin border-radius-top($radius) {
+  	@include border-radius($radius $radius 0 0);
 }
 
 @mixin box-shadow($color) {
@@ -54,6 +52,129 @@ $feeds-border-radius: 5px;
 	   -moz-transition: $params;
 		 -o-transition: $params;
 			transition: $params;
+}
+
+@media screen and (max-width:800px) {
+	.feed-item-text {
+		.feed-description {
+			position: relative;
+		}
+
+		.view-author, .view-flickr{
+			float: left;
+			position: relative;
+			top: 1.5em;
+		}
+		.published {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+		.view-author{
+			margin-right: 20px;
+		}
+	}
+}
+
+@media screen and (max-width:610px) {
+	.navbar {
+
+		h1 {
+			text-align: center;
+
+			input {
+				width: 50%;
+			}
+
+			input, .push-right {
+				float: none;
+				position: relative;
+				text-align: center;
+			}
+
+			.push-right {
+				padding-top: 10px;
+			}
+
+			.title {
+
+				&:after {
+					content: "";
+					display: none;
+				}
+			}
+		}
+	}
+
+	body {
+
+		background-color: #E7E7E7;
+
+		.feed-item {
+			text-align: center;
+			height: auto;
+			padding-bottom: 10px;
+			margin-bottom: 20px;
+
+			.feed-item-text {
+				position: relative;
+				left: 0;
+				.view-author, .view-flickr, .published{
+					float: none;
+					position: relative;
+					top: 0;
+					display: block;
+					margin-bottom: 10px;
+					margin-right: 0;
+				}
+			}
+
+			.feed-item-img {
+				width: 100%;
+
+				@include border-radius-top($feeds-border-radius);
+				
+				img {
+					min-width: 100%;
+				}
+			}
+		}
+
+		.post-container {
+
+			.post-content {
+				
+				.post-img {
+					width: 100%;
+					
+					img {
+						width: 100%;
+					}
+				}
+
+				.post-text {
+					position: relative;
+					left: 0;
+					margin-top: 10px;
+				}
+			}
+
+		}
+	}
+}
+
+.app-view {
+	position: relative;
+	width: 100%;
+}
+
+ul {
+	padding-left: 0;
+}
+
+ul > li {
+	list-style-type: none;
 }
 
 .feed-item {
@@ -126,12 +247,12 @@ $feeds-border-radius: 5px;
 
 a {
 	text-decoration: none;
-	color: #456CC0;
+	color: #3498db;
 	font-weight: bold;
 
 	&:hover { text-decoration: underline; }
 
-	&:visited { color: #956CC0; }
+	&:visited { color: #2980b9; }
 }
 
 a.title {
@@ -201,8 +322,6 @@ a.title {
 	}
 }
 
-$post-img-width : 240px;
-
 .post-container {
 	position: relative;
 
@@ -255,29 +374,48 @@ $post-img-width : 240px;
 }
 
 .push-right {
-	float: right;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 
-.navbar input {
-	border: 0;
-	background-color: white;
-	padding: 2px 7px;
-	margin: 1px;
-	text-transform: capitalize;
-	font-size: 1em;
-	font-weight: bold;
-	width: 25%;
-	color: #888888;
-	@include border-radius(5px);
-	@include box-shadow(#E0E0E0);
+.navbar {
 
-	&:focus {
- 		outline: 0;
- 		color: #AAAAAA;
- 		border: 1px solid #AAAAAA;
- 		margin: 0;
- 		@include no-box-shadow();
- 	}
+	.title {
+
+		&:after {
+			content: " /";
+		}
+	}
+
+	.navbar-title{
+
+		position: relative;
+
+	}
+
+	input {
+
+		border: 0;
+		background-color: white;
+		padding: 2px 7px;
+		margin: 1px;
+		text-transform: capitalize;
+		font-size: 1em;
+		font-weight: bold;
+		width: 25%;
+		color: #888888;
+		@include border-radius(5px);
+		@include box-shadow(#E0E0E0);
+
+		&:focus {
+	 		outline: 0;
+	 		color: #AAAAAA;
+	 		border: 1px solid #AAAAAA;
+	 		margin: 0;
+	 		@include no-box-shadow();
+	 	}
+	}
 }
 
 .letterpress {

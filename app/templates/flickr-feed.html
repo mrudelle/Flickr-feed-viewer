@@ -19,10 +19,11 @@
 						{{post.title | handleUntitled}}
 					</h2>
 				</a>
-				<p>	<a href="http://www.flickr.com/people/{{post.author_id}}/">{{post.author | extractAuthor}}</a>
-					 	Published: {{post.published | parseDate}} 
-					<a href="{{post.link}}">View on flickr</a>
-				</p>
+				<div class="feed-description">
+					<a href="http://www.flickr.com/people/{{post.author_id}}/" class="view-author">{{post.author | extractAuthor}}</a>
+					<span class="published">Published: {{post.published | parseDate}}</span>
+					<a href="{{post.link}}" class="view-flickr">View on flickr</a>
+				</div>
 			</div>
 		</li>
 	</ul>

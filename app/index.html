@@ -2,6 +2,7 @@
 <html lang="en" ng-app="flickrfeedApp">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Flickr Public Feed</title>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.0rc3/angular.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.0rc3/angular-route.js"></script>
@@ -19,7 +20,10 @@
 </head>
 <body>
 	<div class="navbar" ng-controller="Navbar">
-		<h1>Flickr Public Feed / 
+		<h1 class="navbar-title">
+			<span class="title">
+				Flickr Public Feed
+			</span> 
 			<input type="text" ng-model="tag.text" ng-disabled="disableSearch()">
 			<div class="push-right">
 				<div class="g-plusone" data-href="http://mrudelle.github.io/Flickr-feed-viewer/app/"></div>
