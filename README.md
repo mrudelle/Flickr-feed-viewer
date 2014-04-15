@@ -25,3 +25,10 @@ The scss files have to be compiled to have an effect on the webapge. For instanc
 # Future development
 
 To see the future development projects see [the enhancement issues](https://github.com/mrudelle/Flickr-feed-viewer/issues?labels=enhancement&page=1&state=open).
+
+# Browser Support
+
+* Chrome (latest)
+* Firefox (27+)
+* Internet Explorer (9 and 10) see #10 why version 11 is not supported. (to be feixed in the future)
+* safari (6 and 7)
