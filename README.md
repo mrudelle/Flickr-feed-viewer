@@ -30,5 +30,5 @@ To see the future development projects see [the enhancement issues](https://gith
 
 * Chrome (latest)
 * Firefox (27+)
-* Internet Explorer (9 and 10) see #10 why version 11 is not supported. (to be feixed in the future)
+* Internet Explorer (9 and 10) see #10 why version 11 is not supported. (to be fixed in the future)
 * safari (6 and 7)
