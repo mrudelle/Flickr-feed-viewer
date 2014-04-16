@@ -1,0 +1,32 @@
+<div class="post-container">
+	<div ng-hide="loading" class="post-title">
+		<h2>
+			<a class="title" href="{{post.link}}">{{post.title | handleUntitled}}</a>
+		</h2>
+		<div class="back-arrow" ng-click="back()">Return</div>
+	</div>
+	<div ng-show="loading" class="top-of-feed-container">
+		<span class="letterpress">Loading ...</span>
+	</div>
+	<div ng-show="notfound" class="top-of-feed-container">
+		<span class="letterpress">Oups! We did not find your image...</span>
+		<br>
+		<span class="letterpress">You can try to find it on <a href="{{'https://www.flickr.com/photos/'+author+'/'+postId+'/'}}">Flickr</a></span>
+	</div>
+	<div ng-hide="notfound||loading">
+		<p>
+			<a href="http://www.flickr.com/people/{{post.author_id}}/">
+				{{post.author | extractAuthor}}</a>
+			&emsp;|&emsp;Published: {{post.published | parseDate}} 
+		</p>
+		<div class="post-content">
+			<div class="post-img">
+				<img src="{{post.media.m}}">
+			</div>
+			<div class="post-text">
+				<div ng-bind-html="description"></div>
+				<p>Tags: <a ng-repeat="tag in post.tags | split:' '" href="#/feed/{{tag}}/" class="tag">{{tag}} </a></p>
+			</div>
+		</div>
+	</div>
+</div>

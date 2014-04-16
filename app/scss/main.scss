@@ -1,0 +1,450 @@
+html {
+	padding: 0 10px;
+}
+
+body {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 300;
+	width: 100%;
+	max-width: 900px;
+	min-width: 260px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color: #F0F0F0;
+	//to avoid resizing due to the scorllbar
+	overflow-y: scroll; 
+}
+
+$feed-img-height: 160px;
+$feed-img-width: 240px;
+$post-img-width: 240px;
+$feeds-border-radius: 5px;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin border-radius-left($radius) {
+  	@include border-radius($radius 0 0 $radius);
+}
+
+@mixin border-radius-top($radius) {
+  	@include border-radius($radius $radius 0 0);
+}
+
+@mixin box-shadow($color) {
+	-webkit-box-shadow: 0px 2px 2px 0px $color; 
+	   -moz-box-shadow: 0px 2px 2px 0px $color; 
+	   		box-shadow: 0px 2px 2px 0px $color;
+}
+
+@mixin no-box-shadow() {
+	-webkit-box-shadow: none; 
+	   -moz-box-shadow: none; 
+	   		box-shadow: none;
+}
+
+@mixin transition($params) {
+	-webkit-transition: $params;
+	   -moz-transition: $params;
+		 -o-transition: $params;
+			transition: $params;
+}
+
+@media screen and (max-width:800px) {
+	.feed-item-text {
+		.feed-description {
+			position: relative;
+		}
+
+		.view-author, .view-flickr{
+			float: left;
+			position: relative;
+			top: 1.5em;
+		}
+		.published {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+		.view-author{
+			margin-right: 20px;
+		}
+	}
+}
+
+@media screen and (max-width:610px) {
+	.navbar {
+
+		h1 {
+			text-align: center;
+
+			input {
+				width: 50%;
+			}
+
+			input, .push-right {
+				float: none;
+				position: relative;
+				text-align: center;
+			}
+
+			.push-right {
+				padding-top: 10px;
+			}
+
+			.title {
+
+				&:after {
+					content: "";
+					display: none;
+				}
+			}
+		}
+	}
+
+	body {
+
+		background-color: #E7E7E7;
+
+		.feed-item {
+			text-align: center;
+			height: auto;
+			padding-bottom: 10px;
+			margin-bottom: 20px;
+
+			.feed-item-text {
+				position: relative;
+				left: 0;
+				.view-author, .view-flickr, .published{
+					float: none;
+					position: relative;
+					top: 0;
+					display: block;
+					margin-bottom: 10px;
+					margin-right: 0;
+				}
+			}
+
+			.feed-item-img {
+				width: 100%;
+
+				@include border-radius-top($feeds-border-radius);
+				
+				img {
+					min-width: 100%;
+				}
+			}
+		}
+
+		.post-container {
+
+			.post-content {
+				
+				.post-img {
+					width: 100%;
+					
+					img {
+						width: 100%;
+					}
+				}
+
+				.post-text {
+					position: relative;
+					left: 0;
+					margin-top: 10px;
+				}
+			}
+
+		}
+	}
+}
+
+.app-view {
+	position: relative;
+	width: 100%;
+}
+
+ul {
+	padding-left: 0;
+}
+
+ul > li {
+	list-style-type: none;
+}
+
+.feed-item {
+	height: $feed-img-height;
+	background-color: #FFF;
+	margin-bottom: 10px;
+	position: relative;
+
+	@include border-radius($feeds-border-radius);
+	@include box-shadow(#E0E0E0);
+
+	&.ng-move, &.ng-enter, &.ng-leave {
+		@include transition(0.5s ease all);
+	}
+
+	&.ng-leave.ng-leave-active,
+	&.ng-move,
+	&.ng-enter {
+		//this animation might be a little too much
+		//margin-top: 100%;
+		opacity: 0;
+	}
+	 
+	&.ng-leave,
+	&.ng-move.ng-move-active,
+	&.ng-enter.ng-enter-active {
+		//margin-top: 0;
+		opacity: 1;
+	}
+}
+
+.feed-item-text {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: $feed-img-width;
+	padding: 0px 15px;
+}
+
+.feed-item-img {
+	width: $feed-img-width;
+	height: $feed-img-height;
+	overflow: hidden;
+	display: inline-block;
+	position: relative;
+
+	@include border-radius-left($feeds-border-radius);
+	
+	img {
+		min-width: $feed-img-width;
+		min-height: $feed-img-height;
+
+		/*the next 5 statements allows to center the overflowing of an image in its div 
+		(src: http://stackoverflow.com/questions/14562457/center-oversized-image-in-div)*/
+		position: absolute;
+		top: -9999px;
+		bottom: -9999px;
+		left: -9999px;
+		right: -9999px;
+		margin: auto;
+	}
+}
+
+.truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+a {
+	text-decoration: none;
+	color: #3498db;
+	font-weight: bold;
+
+	&:hover { text-decoration: underline; }
+
+	&:visited { color: #2980b9; }
+}
+
+a.title {
+	text-decoration: none;
+	color: #555;
+
+	&:hover { 
+		color: #818181; 
+		text-decoration: none;
+	}
+
+	&:visited { 
+		&:hover { color: #818181; }
+		color: #949494; 
+	}
+}
+
+@mixin back-arrow($background, $border, $height, $brdrwidth) {
+	// source : http://cssarrowplease.com/
+	position: absolute;
+	background: $background;
+	border: #{$brdrwidth}px solid $border;
+	$inner-padding : 10;
+	height: #{$height*2 - $inner-padding*2}px;
+	line-height: #{$height*2 - $inner-padding*2}px;
+	padding: #{$inner-padding}px;
+
+	@include border-radius(0 5px 5px 0);
+
+	&:after, &:before {
+		right: 100%;
+		top: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+
+	&:after {
+		// border-color: rgba(136, 183, 213, 0);
+		border-right-color: $background;
+		border-width: #{$height}px;
+		margin-top: -#{$height}px;
+	}
+
+	&:before {
+		// border-color: rgba(194, 225, 245, 0);
+		border-right-color: $border;
+		border-width: #{$height+$brdrwidth*1.5}px;
+		margin-top: -#{$height+$brdrwidth*1.5}px;
+	}
+}
+
+.back-arrow {
+	@include back-arrow(#DADADA, #CCCCCC, 15, 0);
+	font-weight: bold;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+	color: #434343;
+
+	&:hover {
+		@include back-arrow(#CCCCCC, #CCCCCC, 15, 0);
+		color: #F5F5F5;
+	}
+}
+
+.post-container {
+	position: relative;
+
+	.post-title {
+		position: relative;
+	}
+
+	.post-content {
+		position: relative;
+		
+		.post-img {
+			width: #{$post-img-width};
+			
+			img {
+				width: #{$post-img-width};
+				height: auto;
+
+				@include border-radius(7px);
+				@include box-shadow(#D8D8D8);
+			}
+		}
+
+		.post-text {
+			position: absolute;
+			top: 0;
+			left: 240px;
+			padding: 10px;
+		}
+	}
+
+}
+
+.tag {
+	@include border-radius(5px);
+	padding: 5px 8px 6px 8px;
+	line-height: 220%;
+	margin-right: 5px;
+	color: #434343;
+	background: #DADADA;
+
+	&:hover{
+		background: #CCCCCC;
+		color: #434343;
+		text-decoration: none;
+	}
+
+	&:visited {
+		color: #9B9B9B;
+	}
+}
+
+.push-right {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.navbar {
+
+	.title {
+
+		&:after {
+			content: " /";
+		}
+	}
+
+	.navbar-title{
+
+		position: relative;
+
+	}
+
+	input {
+
+		border: 0;
+		background-color: white;
+		padding: 2px 7px;
+		margin: 1px;
+		text-transform: capitalize;
+		font-size: 1em;
+		font-weight: bold;
+		width: 25%;
+		color: #888888;
+		@include border-radius(5px);
+		@include box-shadow(#E0E0E0);
+
+		&:focus {
+	 		outline: 0;
+	 		color: #AAAAAA;
+	 		border: 1px solid #AAAAAA;
+	 		margin: 0;
+	 		@include no-box-shadow();
+	 	}
+	}
+}
+
+.letterpress {
+	color: #AAAAAA;
+	font-weight: bold;
+	text-shadow: 0px 1px 0px #FFFFFF;
+}
+
+.top-of-feed-container {
+	width: 100%;
+	text-align: center;
+	padding-top: 20px;
+
+	&.ng-hide-add, &.ng-hide-remove {
+		@include transition(all ease-out 0.15s);
+		display:block!important;
+	}
+
+	&.ng-hide-add.ng-hide-add-active, &.ng-hide-remove {
+		opacity: 0;
+		margin-top: -2.5em;
+	}
+
+	&.ng-hide-add, &.ng-hide-remove.ng-hide-remove-active  {
+		opacity: 1;
+		margin-top: 0;
+	}
+
+	span {
+		line-height: 1.5em;
+	}
+}
